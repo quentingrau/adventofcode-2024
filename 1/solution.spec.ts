@@ -22,3 +22,24 @@ describe('Get the total distance between two lists', () => {
   });
 });
 
+describe('Get the similarity score between two lists', () => {
+  it('should return the sum of the occurence of each number of the first list in the second list', () => {
+    const firstList = [1, 2, 3, 4, 5];
+    const secondList = [2, 3, 4, 5, 6];
+    // Similarity score = 0 + 2*1 + 3*1 + 4*1 + 5*1 = 2 + 3 + 4 + 5 = 14
+
+    const similarityScore = getSimilarityScore(firstList, secondList);
+
+    expect(similarityScore).toBe(14);
+  })
+
+  it('should return the sum of the occurence of each number of the first list in the second list given multiple occurences', () => {
+    const firstList = [1, 2, 3, 4, 5];
+    const secondList = [2, 2, 3, 5, 5];
+    // Similarity score = 0 + 2*2 + 3*1 + 5*2 = 4 + 3 + 10 = 17
+
+    const similarityScore = getSimilarityScore(firstList, secondList);
+
+    expect(similarityScore).toBe(17);
+  })
+});
